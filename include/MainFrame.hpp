@@ -1,11 +1,24 @@
+// MainFrame.hpp --- 
+// 
+// Description: 
+// Author: Hongyi Wu(吴鸿毅)
+// Email: wuhongyi@qq.com 
+// Created: 六 2月  2 22:08:49 2019 (+0800)
+// Last-Updated: 六 2月  2 22:09:06 2019 (+0800)
+//           By: Hongyi Wu(吴鸿毅)
+//     Update #: 1
+// URL: http://wuhongyi.cn 
+
+
 /// @file MainFrame.hpp
 /// @brief
 /// @author S. V. Paulauskas
 /// @date June 02, 2018
 /// @copyright Copyright (c) 2018 S. V. Paulauskas. 
 /// @copyright All rights reserved. Released under the Creative Commons Attribution-ShareAlike 4.0 International License
-#ifndef ISSUE126_MAINFRAME_HPP
-#define ISSUE126_MAINFRAME_HPP
+
+#ifndef _MAINFRAME_H_
+#define _MAINFRAME_H_
 
 #include <TGFrame.h>
 #include <TGMenu.h>
@@ -35,6 +48,7 @@
 #include <TKey.h>
 #include <TH2D.h>
 #include <TH3D.h>
+#include "TString.h"
 
 #include <string>
 
@@ -50,9 +64,7 @@ public:
     MainFrame(const TGWindow *p, TApplication *a);
 
     void Exit();
-
     void PlotSelected();
-
     void OpenFile();
 private:
     void Initialize(TApplication *app);
@@ -61,24 +73,14 @@ private:
     void SetupControlButtons();
 
     TGListBox *fListBox;
-    TGCheckButton *fCheckMulti;
     TList *fSelected;
     TApplication *app_;
     TFile *file_;
     TCanvas *canvas_;
-    TGNumberEntry *fNumber;
-    TGNumberEntry *fNumber1;
-    TGGroupFrame *fGframe;
 
-    TH1D *hist1d;
-    TH2D *hist2d;
-    TH3D *hist3d;
+    TH1 *hist;
 
-    std::pair<TAxis, TAxis> axies1d_;
-    std::tuple<TAxis, TAxis, TAxis> axies2d_;
-    std::tuple<TAxis, TAxis, TAxis> axies3d_;
-
-    std::map<int, std::tuple<bool, TAxis, TAxis, TAxis> > axisMap_;
+    std::map<int, std::tuple<bool, TAxis, TAxis, TAxis,TString> > axisMap_;
 
     bool isFirstPlotCall_;
 
@@ -89,4 +91,7 @@ private:
 ClassDef(MainFrame, 1)
 };
 
-#endif //ISSUE126_MAINFRAME_HPP
+#endif /* _MAINFRAME_H_ */
+
+// 
+// MainFrame.hpp ends here
