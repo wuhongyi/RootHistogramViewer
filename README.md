@@ -4,14 +4,12 @@ This program allows users to view histograms in a [ROOT](https://root.cern.ch/) 
 列表显示 ROOT 文件中的 TH1/TH2/TH3，通过点击快速查看结果。
 
 # Prerequisites
-* cmake 2.6 +
+
 * ROOT 6.00 +
 
 # Installation
-1. Create a build directory : `mkdir build`
-2. Change to the build directory : `cd build`
-3. Build the project : `cmake ../`
-4. Make the project : `sudo make -j8`
+
+* Make the project : `make -j8`
 
 # 版本修订
 
